@@ -94,7 +94,6 @@ Followiing things includes in this role:
 ## Variables
 
 ```yaml
-  mount_path: /data
   es_exporter_server_port: 9114
   es_exporter_server_bind: 0.0.0.0
   es_exporter_server_password: false
