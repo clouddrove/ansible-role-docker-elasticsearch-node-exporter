@@ -1,0 +1,9 @@
+[Unit]
+Description=elasticsearch exporter Server
+
+[Service]
+TimeoutStartSec=0
+Restart=always
+ExecStart=/usr/local/bin/es_exporter
+[Install]
+WantedBy=multi-user.target

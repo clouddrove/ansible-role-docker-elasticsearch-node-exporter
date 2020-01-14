@@ -1,0 +1,84 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: Ansible Role Docker Elasticsearch Node Exporter
+
+# License of this project
+license: "MIT"
+
+# Canonical GitHub repo
+github_repo: clouddrove/ansible-role-docker-elasticsearch-node-exporter
+
+# Badges to display
+badges:
+  - name: "Ansible"
+    image: "https://img.shields.io/badge/Ansible-2.8-green?style=flat&logo=ansible"
+    url: "https://www.ansible.com"
+  - name: "Licence"
+    image: "https://img.shields.io/badge/License-MIT-blue.svg"
+    url: "LICENSE.md"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-16.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+  - name: "Distribution"
+    image: "https://img.shields.io/badge/ubuntu-18.x-orange?style=flat&logo=ubuntu"
+    url: "https://ubuntu.com/"
+
+# Prerequesties to display
+# yamllint disable
+prerequesties:
+  - name: "Ansible2.8"
+    url: "https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html"
+  - name: "Python"
+    url: "https://www.python.org/downloads"
+  - name: "Docker"
+    url: "https://docs.docker.com/install/linux/docker-ce/ubuntu"
+  - name: "Elasticsearch"
+    url: "https://github.com/clouddrove/ansible-role-docker-elasticsearch"
+# yamllint enable
+# What Includes to display
+what_includes:
+  - name: "elasticsearch-node-exporter"
+
+
+#  description of this project
+description: |-
+  This ansible role is used to setup Elasticsearch node exporter with docker.
+
+# How to use this project
+usage: |-
+  ```yaml
+  - hosts: localhost
+    remote_user: ubuntu
+    become: true
+    roles:
+      - clouddrove.ansible_role_docker_elasticsearch_node_exporter
+  ```
+# Variables use in the project
+variables: |-
+  ```yaml
+    mount_path: /data
+    es_exporter_server_port: 9114
+    es_exporter_server_bind: 0.0.0.0
+    es_exporter_server_password: false
+    es_exporter_version: 1.1.0
+    es_server_port: 9200
+    es_server_uri: "http://{{ PublicIp }}:{{ es_server_port }}"
+    es_server_all: false
+    es_server_cluster_settings: false
+    es_server_indices: false
+    es_server_indices_settings: false
+    es_server_shards: false
+    es_server_snapshots: false
+    es_server_timeout: 5s
+  ```
+
+# How to install project
+installation: |-
+  ```console
+    $ ansible-galaxy install clouddrove.ansible_role_docker_elasticsearch_node_exporter
+  ```

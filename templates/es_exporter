@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -eux -o pipefail
+
+# pull the image before so we dont first remove the container and then pull
+docker pull justwatch/elasticsearch_exporter:"{{ es_exporter_version }}"
+
+docker rm -f -v elasticsearch_exporter || :
+
+docker run --rm --name=elasticsearch_exporter \
+	-p 9114:"{{ es_exporter_server_port }}" \
+	-e ES_URI='{{ es_server_uri }}' \
+	-e ES_ALL='{{ es_server_all }}' \
+	-e ES_CLUSTER_SETTINGS='{{ es_server_cluster_settings }}' \
+	-e ES_INDICES='{{ es_server_indices }}' \
+	-e ES_INDICES_SETTINGS='{{ es_server_indices_settings }}' \
+	-e ES_SHARDS='{{ es_server_shards }}' \
+	-e ES_SNAPSHOTS='{{ es_server_snapshots }}' \
+	-e ES_TIMEOUT='{{ es_server_timeout }}' \
+   justwatch/elasticsearch_exporter:"{{ es_exporter_version }}"

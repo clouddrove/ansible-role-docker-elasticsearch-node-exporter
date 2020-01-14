@@ -1,0 +1,20 @@
+---
+# handlers for ansible-role-docker-es_exporter
+
+- name: restart es_exporter
+  service:
+    name: es_exporter
+    state: restarted
+    enabled: true
+
+- name: start es_exporter
+  service:
+    name: es_exporter
+    state: started
+    enabled: true
+
+- name: reload es_exporter
+  service:
+    name: es_exporter
+    state: reloaded
+    enabled: true
