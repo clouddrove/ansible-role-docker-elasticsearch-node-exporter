@@ -7,7 +7,7 @@ es_exporter_server_password: false
 es_exporter_version: 1.1.0
 
 es_server_port: 9200
-es_server_uri: "http://{{ PublicIp }}:{{ es_server_port }}"
+es_server_uri: "http://{{ PrivateIp }}:{{ es_server_port }}"
 es_server_all: false
 es_server_cluster_settings: false
 es_server_indices: false
