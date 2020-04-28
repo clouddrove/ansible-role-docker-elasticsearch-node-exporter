@@ -20,6 +20,7 @@
   service:
     name: es_exporter
     state: restarted
+    enabled: true
   changed_when: false
 
 - name: wait for elasticsearch exporter to become ready
